@@ -9,7 +9,7 @@ _Estas instrucciones te permitirán obtener una copia del proyecto en funcionami
 
 ### Pre-requisitos 📋
 Para HU_005, en la carpeta llamada xampp es posible observar una pequeña forma y sencilla de acceder con credenciales a la página, se hizo uso de xampp para almacenar los datos de la tabla de usuario y claves, uno de los usuario corresponde a admin y la contraseña a 123456789
-Se hizo uso de dos archivos HTML, uno llamado index.html y otro llamado registrarventas.html, también se resaltan el uso de 2 páginas php, una no visible debido a que se usa para el registro de las ventas en la database de MYSQL (llamado formu.php), y otra para ilustrar los datos guardados en la database (alojado en la carpeta consultaventas, corresponde al nombre de index.php, por último, para estilizar las páginas en html y la de php visible se utilizó un archivo en css llamado estilos.css. 
+Se hizo uso de dos archivos HTML, uno llamado index.html y otro llamado registrarventas.html, también se resaltan el uso de 2 páginas php, una no visible debido a que se usa para el registro de las ventas en la database de MYSQL (llamado formu.php), y otra para ilustrar los datos guardados en la database (alojado en la carpeta consultaventas, corresponde al nombre de index.php), por último, para estilizar las páginas en html y la de php visible se utilizó un archivo en css llamado estilos.css. 
 Para la database se utilizó el software "xampp", donde se alojaron los datos en MYSQL introducidos en la página de registrarventas.html, a través de phpmyadmin y para 
 observar todos los cambios llevados a cabo, entonces se hizo uso del apache de xampp.
 
