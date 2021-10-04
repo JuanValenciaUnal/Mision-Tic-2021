@@ -1,0 +1,95 @@
+<html>
+    <head>
+        <meta name= "author" content="MinTicDevs">
+        <!--De qué se trata esta página-->
+        <meta name="description" content="HU_006: listar las ventas realizadas">
+        <meta name="keywords" content="Primeros pasos para sistema de registro de ventas">
+        <meta http-equiv="Refresh" content="30">
+        <link rel="stylesheet" type="text/css" href="../proyecto/estilosheader.css">
+        <title> 
+            MinTicDevs 
+        </title>
+    </head> 
+
+    <body>
+      <header>
+        <div id="logo">
+            <img src="domain (2).png" alt="MinTicDevs">
+            <h1>
+                Proyecto MinTicDevs
+            </h1> 
+          </header>
+            <div class="padre">
+        <div class="hijo">
+          <nav class="menu">
+            <ul>
+                <li><a href="index.html">Inicio</a> </li>
+                <li><a href="registrarventas.html">Registrar ventas</a> </li>
+                <li><a href="../proyecto/consulta.php">Consultar ventas</a> </li>
+                <li><a href="registrarproductos.html">Registrar productos</a> </li>
+                <li><a href="../proyecto/consultaproductos.php">Consultar productos</a> </li>
+                <li><a href="../proyecto/consultausuarios.php">Consultar usuarios</a> </li>
+                <li><a href="../proyecto/index.php">Salir</a> </li>
+            </ul>
+        </nav>
+      </div> 
+      </div>
+      
+        <br>
+        <h3>Registro de productos</h3>
+        <br>
+        <div class="formulario">
+          
+        <form action="formuproductos.php" method="post">
+          <table>
+            <ul>
+                <ul>
+            <li>
+               <label for="name">Nombre del producto:</label>
+               <input type="text" id="name" name="product_name">
+             </li>
+             <br>
+             <br>
+             <li>
+                <label for="name">Código del producto:</label>
+                <input type="number" id="number" name="product_id">
+              </li>
+              <br>
+              <br>
+             <li>
+               <label for="mail">Ventas del producto:</label>
+               <input type="number" id="number" name="product_ventas">
+             </li>
+             <br>
+             <br>
+             <li>
+                <label for="name">Nombre del cliente:</label>
+                <input type="text" id="name" name="product_cliente">
+              </li>
+             <br>
+             <br>
+             <li>
+                <label for="name">Características del producto:</label>
+                <input type="text" id="name" name="product_characteristics">
+              </li>
+             <br>
+             <br>
+             <li>
+               <label for="msg">Mensaje del producto:</label>
+               <textarea id="msg" name="product_message"></textarea>
+             </li>
+             <br>
+             <input type="submit" value="ENVIAR REGISTRO" name="enviar">
+              </ul>
+            </ul>
+          </table>
+           </form>
+          
+          </div>
+           <br>
+           <br>
+           
+           
+
+    </body>
+</html>
