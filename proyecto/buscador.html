@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <div class="container mt-5">
+    
+        <label for="identificador">Buscar por:</label>
+        <input type="text" id="identificador" class="form-control my-2">
+        <h1> </h1>
+        <label for="formulario">Buscar:</label>
+        <input type="text" id="formulario" class="form-control my-2">
+        <button class="btn btn-info mb-2" id="boton">Buscar</button>
+        <ul id = "resultado">
+           
+        </ul>
+    </div>
+    <script>
+        const productos = [
+            {nombre: 'Juan', documento: '23482348', correo: 'juan@gmail.com', nombreProducto: 'Pan', codigoProducto: '323213'},
+            {nombre: 'Felipe', documento: '10384275', correo: 'felipe@gmail.com', nombreProducto: 'Huevos', codigoProducto: '8342344'},
+            {nombre: 'Hector', documento: '300423646', correo: 'hector@gmail.com', nombreProducto: 'Leche', codigoProducto: '98765456'},
+        ];
+        const opcion = document.querySelector('#identificador');
+        const formulario = document.querySelector('#formulario');
+        const boton = document.querySelector('#boton');
+        const resultado = document.querySelector('#resultado');
+        const filtrar =  () =>{
+            resultado.innerHTML = '';
+            const texto = formulario.value.toLowerCase();
+            for(let producto of productos){
+                let nombre= producto.nombre.toLowerCase();
+                switch (opcion.value){
+                    case 'codigo':
+                        if(codigoProducto.indexOf(texto) !== -1){
+                            resultado.innerHTML += `
+                            <li>${producto.nombre} - Documento: ${producto.documento} - Correo: ${producto.correo} - Nombre producto: ${producto.nombreProducto}- Codigo producto: ${producto.codigoProducto}</li>
+                            `
+                        }   
+                    break;
+                    case 'cedula':
+                        if(documento.indexOf(texto) !== -1){
+                            resultado.innerHTML += `
+                            <li>${producto.nombre} - Documento: ${producto.documento} - Correo: ${producto.correo} - Nombre producto: ${producto.nombreProducto}- Codigo producto: ${producto.codigoProducto}</li>
+                            `
+                        } 
+                    break;
+                    case 'nombre':
+                        if(nombre.indexOf(texto) !== -1){
+                            resultado.innerHTML += `
+                            <li>${producto.nombre} - Documento: ${producto.documento} - Correo: ${producto.correo} - Nombre producto: ${producto.nombreProducto}- Codigo producto: ${producto.codigoProducto}</li>
+                            `
+                        } 
+                    break;
+                }
+            }
+            if(resultado.innerHTML === ''){
+                resultado.innerHTML +=  `
+                    <li>Producto no encontrado</li>
+                `
+            }
+        }
+        boton.addEventListener('click',filtrar)
+        formulario.addEventListener('keyup',filtrar)
+        //filtrar(); 
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container mt-5">
+    
+        <label for="identificador">Que  tipo desea modificar:</label>
+        <input type="text" id="identificador" class="form-control my-2">
+        <h1> </h1>
+        <label for="palabra">Que desea modificar:</label>
+        <input type="text" id="palabra" class="form-control my-2">
+        <h1> </h1>
+        <label for="formulario">Nuevo valor:</label>
+        <input type="text" id="formulario" class="form-control my-2">
+        <h3>La venta se almaceno correctamente</h3>
+    </div>
+    <script>
+        var productos = [
+            {nombre: 'Juan', documento: '23482348', correo: 'juan@gmail.com', nombreProducto: 'Pan', codigoProducto: '323213'},
+            {nombre: 'Felipe', documento: '10384275', correo: 'felipe@gmail.com', nombreProducto: 'Huevos', codigoProducto: '8342344'},
+            {nombre: 'Hector', documento: '300423646', correo: 'hector@gmail.com', nombreProducto: 'Leche', codigoProducto: '98765456'},
+        ];
+        const opcion = document.querySelector('#identificador');
+        const cambiar = document.querySelector('#palabra');
+        const formulario = document.querySelector('#formulario');
+        switch(opcion.value){
+            case'nombre':
+                productos.map(function(dato){
+                    if(dato.nombre==cambiar.value){
+                        dato.nombre = formulario.value;
+                    }
+                })
+
+                break;
+           /* case'cedula':
+
+                break;
+            case'cedula':
+            
+                break;
+            case'correo':
+            
+                break;
+            case'producto':
+            
+                break; */
+        }
+    </script>
+</body>
+</html>
