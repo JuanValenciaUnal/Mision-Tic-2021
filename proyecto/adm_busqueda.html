@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container mt-5">
+
+        <label for="formulario">Buscar:</label>
+        <input type="text" id="formulario" class="form-control my-2">
+        <button class="btn btn-info mb-2" id="boton">Buscar</button>
+        <ul id = "resultado">
+           
+        </ul>
+    </div>
+    
+    <script>
+        var productos = [
+            {nombre: 'Pan', codigo: '23482348', ventas: 20,  descripcion: 'Pan de trigo'},
+            {nombre: 'Huevos', codigo: '10384275', ventas: 42,  descripcion: 'Huevos de gallina'},
+            {nombre: 'Leche', codigo: '300423646', ventas: 12, descripcion: 'Leche de vaca'},
+        ];
+        const buscar = document.querySelector('#formulario');
+        const resultado = document.querySelector('#resultado');
+
+        const Buscar =  () =>{
+            resultado.innerHTML = '';
+            productos.map(function(dato){
+                if(dato.codigo == buscar.value){
+                    resultado.innerHTML += `
+                        <li>${dato.nombre} - codigo: ${dato.codigo} - ventas: ${dato.ventas} - descripcion: ${dato.descripcion}</li>
+                     `  
+                }
+                if(dato.descripcion == buscar.value){
+                    resultado.innerHTML += `
+                    <li>${dato.nombre} - Documento: ${dato.documento} - Correo: ${dato.ventas} - Nombre producto: ${dato.nombreProducto}- Codigo venta: ${dato.codigoVenta}</li>
+                     ` 
+                }
+                return dato;
+            });
+        }
+        boton.addEventListener('click',Buscar)
+    </script>
+</body>
+</html>
