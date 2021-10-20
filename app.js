@@ -1,46 +1,29 @@
-var express = require("express");
-var app = express();
-var bodyParser = require("body-parser");
-var User = require("./user").User;
+const path = require('path');
+const express = require('express');
+const morgan = require('morgan');
+const mongoose = require('mongoose');
 
-app.use("/public", express.static("public"));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended:true}));
+const app = express();
 
-app.set("view engine", "jade");
+// connection to db
+mongoose.connect('mongodb://localhost/crud-mongo')
+  .then(db => console.log('db connected'))
+  .catch(err => console.log(err));
 
-app.get("/", function(req,res){
-  User.find(function(err,users){
-    if (err) return console.error(err);
-    res.render("index", {usuarios : users});
-  });
+// importing routes
+const indexRoutes = require('./routes/index');
+
+// settings
+app.set('port', process.env.PORT || 3000);
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+
+// middlewares
+app.use(morgan('dev'));
+app.use(express.urlencoded({extended: false}))
+// routes
+app.use('/', indexRoutes);
+
+app.listen(app.get('port'), () => {
+  console.log(`server on port ${app.get('port')}`);
 });
-
-app.post("/", function(req,res){
-  var user = new User({
-    name : req.body.name,
-    username: req.body.username,
-    age: req.body.age,
-    email: req.body.email,
-    sex: req.body.sex
-  });
-
-  user.save().then(function(us){
-    res.redirect("/");
-  },function(err){
-    console.log(String(err));
-    res.send("No pudimos guardar la información");
-  });
-});
-
-app.get("/delete", function(req,res){
-  User.remove({username:req.query.username}).then(function(us){
-    res.redirect("/");
-  }, function(err){
-    console.log(String(err));
-    res.send("No pudimos eliminar el usuario");
-  });
-});
-
-
-app.listen(8080);
